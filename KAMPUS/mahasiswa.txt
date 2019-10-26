@@ -1,0 +1,13 @@
+nim,nama_mahasiswa,jenis_kelamin,kota,ttl
+61151,Kinanti Permata Putri,Perempuan ,Gresik,1999-11-05
+61211,Dharma Yudistira Eka Putra,Laki-Laki ,Sidoarjo,1999-09-19
+65138,Mirza Zarqani Rayhan,Laki-Laki ,Malang,2000-11-07
+65160,Reza Hacker,,,2000-01-01
+65162,Dwi Cita Nagari,Perempuan ,Kepanjen,1999-06-12
+65163,Denny Nur Ramadhan,Laki-Laki ,Kepanjen,1999-12-19
+65164,Naufal Yudhistira,Laki-Laki ,Gunug Kawi,2000-08-13
+65169,Kian Arata,,Malang,1999-04-04
+65251,Novita Enda Yanto,Perempuan ,Lawang,1999-11-28
+68463,Irvan Alfi Hidayat,Laki-Laki ,Banyuwangi,1998-06-23
+69162,Adie Bagus Satrio,Laki-Laki ,Madura,2000-04-17
+80351,Sheila Amira Mantika Mengi,Perempuan ,Bali,1999-11-30

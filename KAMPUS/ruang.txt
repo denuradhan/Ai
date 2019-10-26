@@ -1,0 +1,11 @@
+kode_ruang,nama_ruang
+KB-01     ,Kelas Besar-01
+KB-02     ,Kelas Besar-02
+KB-03     ,Kelas Besar-03
+LKJ-01    ,Lab Komputer dan Jaringan-01
+LKJ-02    ,Lab Komputer dan Jaringan-02
+LKJ-03    ,Lab Komputer dan Jaringan-03
+LPR-01    ,Lab Pemrograman-01
+LPR-02    ,Lab Pemrograman-02
+RPL-01    ,Lab Rekayasa Perangkat Lunak-01
+RPL-02    ,Lab Rekayasa Perangkat Lunak

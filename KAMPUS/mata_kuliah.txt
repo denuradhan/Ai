@@ -1,0 +1,14 @@
+kode_mk,nama_mk,sks
+Adr       ,Android,2
+AI        ,Artificial Intelligence,3
+BDL       ,Basis Data Lanjut,3
+BIng      ,Bahasa Inggris,2
+BJpg      ,Bahasa Jepang,2
+DesInt    ,Desain Interface,2
+EI        ,Elektronika Industri,5
+JarKom    ,Jaringan Komputer,3
+KB        ,Kuli Batu,5
+MD        ,Matematika Diskrit,3
+PBO       ,Pemrograman Berbasis Objek,3
+RPL       ,Rekayasa Perangkat Lunak,4
+TB        ,Tata Boga,2

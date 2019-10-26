@@ -1,0 +1,250 @@
+USE [master]
+GO
+/****** Object:  Database [Kampus]    Script Date: 04/10/2019 17:36:16 ******/
+CREATE DATABASE [Kampus]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'Kampus', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL14.DENURADHAN\MSSQL\DATA\Kampus.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'Kampus_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL14.DENURADHAN\MSSQL\DATA\Kampus_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+GO
+ALTER DATABASE [Kampus] SET COMPATIBILITY_LEVEL = 140
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [Kampus].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [Kampus] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [Kampus] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [Kampus] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [Kampus] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [Kampus] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [Kampus] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [Kampus] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [Kampus] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [Kampus] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [Kampus] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [Kampus] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [Kampus] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [Kampus] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [Kampus] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [Kampus] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [Kampus] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [Kampus] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [Kampus] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [Kampus] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [Kampus] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [Kampus] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [Kampus] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [Kampus] SET RECOVERY FULL 
+GO
+ALTER DATABASE [Kampus] SET  MULTI_USER 
+GO
+ALTER DATABASE [Kampus] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [Kampus] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [Kampus] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [Kampus] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+ALTER DATABASE [Kampus] SET DELAYED_DURABILITY = DISABLED 
+GO
+EXEC sys.sp_db_vardecimal_storage_format N'Kampus', N'ON'
+GO
+ALTER DATABASE [Kampus] SET QUERY_STORE = OFF
+GO
+USE [Kampus]
+GO
+/****** Object:  Table [dbo].[dosen]    Script Date: 04/10/2019 17:36:16 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[dosen](
+	[nip] [int] NOT NULL,
+	[nama_dosen] [varchar](50) NOT NULL,
+	[kota] [varchar](50) NULL,
+ CONSTRAINT [PK_dosen] PRIMARY KEY CLUSTERED 
+(
+	[nip] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[jadwal]    Script Date: 04/10/2019 17:36:16 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[jadwal](
+	[kode_mk] [char](10) NULL,
+	[nip] [int] NULL,
+	[kode_ruang] [char](10) NULL,
+	[waktu] [time](7) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[jurusan]    Script Date: 04/10/2019 17:36:16 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[jurusan](
+	[kode_jurusan] [char](10) NOT NULL,
+	[nama_jurusan] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_jurusan] PRIMARY KEY CLUSTERED 
+(
+	[kode_jurusan] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[khs]    Script Date: 04/10/2019 17:36:16 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[khs](
+	[nim] [int] NULL,
+	[kode_mk] [char](10) NULL,
+	[nilai] [int] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[krs]    Script Date: 04/10/2019 17:36:16 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[krs](
+	[kode_mk] [char](10) NULL,
+	[nim] [int] NULL,
+	[kode_jurusan] [char](10) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[mahasiswa]    Script Date: 04/10/2019 17:36:16 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[mahasiswa](
+	[nim] [int] NOT NULL,
+	[nama_mahasiswa] [varchar](50) NOT NULL,
+	[jenis_kelamin] [char](10) NULL,
+	[kota] [varchar](50) NULL,
+	[ttl] [date] NULL,
+ CONSTRAINT [PK_mahasiswa] PRIMARY KEY CLUSTERED 
+(
+	[nim] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[mata_kuliah]    Script Date: 04/10/2019 17:36:16 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[mata_kuliah](
+	[kode_mk] [char](10) NOT NULL,
+	[nama_mk] [varchar](50) NOT NULL,
+	[sks] [int] NOT NULL,
+ CONSTRAINT [PK_mata_kuliah] PRIMARY KEY CLUSTERED 
+(
+	[kode_mk] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ruang]    Script Date: 04/10/2019 17:36:16 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ruang](
+	[kode_ruang] [char](10) NOT NULL,
+	[nama_ruang] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_ruang] PRIMARY KEY CLUSTERED 
+(
+	[kode_ruang] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[jadwal]  WITH CHECK ADD  CONSTRAINT [FK_jadwal_dosen] FOREIGN KEY([nip])
+REFERENCES [dbo].[dosen] ([nip])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[jadwal] CHECK CONSTRAINT [FK_jadwal_dosen]
+GO
+ALTER TABLE [dbo].[jadwal]  WITH CHECK ADD  CONSTRAINT [FK_jadwal_mata_kuliah] FOREIGN KEY([kode_mk])
+REFERENCES [dbo].[mata_kuliah] ([kode_mk])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[jadwal] CHECK CONSTRAINT [FK_jadwal_mata_kuliah]
+GO
+ALTER TABLE [dbo].[jadwal]  WITH CHECK ADD  CONSTRAINT [FK_jadwal_ruang] FOREIGN KEY([kode_ruang])
+REFERENCES [dbo].[ruang] ([kode_ruang])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[jadwal] CHECK CONSTRAINT [FK_jadwal_ruang]
+GO
+ALTER TABLE [dbo].[khs]  WITH CHECK ADD  CONSTRAINT [FK_khs_mahasiswa] FOREIGN KEY([nim])
+REFERENCES [dbo].[mahasiswa] ([nim])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[khs] CHECK CONSTRAINT [FK_khs_mahasiswa]
+GO
+ALTER TABLE [dbo].[khs]  WITH CHECK ADD  CONSTRAINT [FK_khs_mata_kuliah] FOREIGN KEY([kode_mk])
+REFERENCES [dbo].[mata_kuliah] ([kode_mk])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[khs] CHECK CONSTRAINT [FK_khs_mata_kuliah]
+GO
+ALTER TABLE [dbo].[krs]  WITH CHECK ADD  CONSTRAINT [FK_krs_jurusan] FOREIGN KEY([kode_jurusan])
+REFERENCES [dbo].[jurusan] ([kode_jurusan])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[krs] CHECK CONSTRAINT [FK_krs_jurusan]
+GO
+ALTER TABLE [dbo].[krs]  WITH CHECK ADD  CONSTRAINT [FK_krs_mahasiswa] FOREIGN KEY([nim])
+REFERENCES [dbo].[mahasiswa] ([nim])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[krs] CHECK CONSTRAINT [FK_krs_mahasiswa]
+GO
+ALTER TABLE [dbo].[krs]  WITH CHECK ADD  CONSTRAINT [FK_krs_mata_kuliah] FOREIGN KEY([kode_mk])
+REFERENCES [dbo].[mata_kuliah] ([kode_mk])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[krs] CHECK CONSTRAINT [FK_krs_mata_kuliah]
+GO
+USE [master]
+GO
+ALTER DATABASE [Kampus] SET  READ_WRITE 
+GO
