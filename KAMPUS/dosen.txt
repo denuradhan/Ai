@@ -1,0 +1,11 @@
+nip,nama_dosen,kota
+1101,Candra Bella Vista,Malang
+1102,Irsyad Arief,Surabaya
+1103,Putra Prima Ahmadi,Malang
+1104,Bagus Sujatmiko,Kepanjen
+1105,Anugrah Nur Rahmanto,
+1106,Bagus Prawira,Magetan
+1107,Suliono Suripto,Sumbermanjing
+1108,Mirza Nur Aulia,Bumi Ayu
+1109,Fatmawati,Tasikmalaya
+1110,Fajar Pandu,

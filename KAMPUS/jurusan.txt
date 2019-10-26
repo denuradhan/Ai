@@ -1,0 +1,11 @@
+kode_jurusan,nama_jurusan
+AK        ,Akutansi
+AN        ,Administrasi Niaga
+GMF       ,Garuda Manufactoring 
+MulMed    ,MultiMedia
+TB        ,Tata Boga
+TE        ,Teknik Elektro
+TI        ,Teknologi Informasi
+TK        ,Teknik Kimia
+TM        ,Teknik Mesin
+TS        ,Teknik Sipil
